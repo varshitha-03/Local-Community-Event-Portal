@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <style>
+  body {
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            max-width: 750px;                             
+            margin: 40px auto;                            
+            padding: 0 20px;
+            color: #2c3e50;                              
+            background-color: #fafbfc;                  
+        }
+        
+        header, nav, main, section, footer {
+            margin-bottom: 35px;                          
+        }
+
+        nav a {
+            margin-right: 15px;
+            color: #006064;
+            text-decoration: none;                       
+            font-weight: bold;
+        }
+    
+table {
+    margin-top: 15px;
+    /* Removed the center margin from your original style */
+}
+        #welcomeBanner{
+            background-color: #e0f7fa;
+            color:#006064;
+            padding: 15px;
+            margin-bottom:20px;
+            border:1px solid #b2ebf2;
+            border-radius:5px;
+        }
+       .highlight{
+            background-color: #fff9c4;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-weight:bold;
+        }
+        .gallery-img{
+            border:3px solid #cfd8dc;
+            border-radius:5px;
+            width:150px;
+            height:100px;
+            display:block;
+            margin:auto;
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+            max-width:600px;
+        }
+        td{
+            padding:10px;
+            text-align:center;
+        }
+        form{
+            background-color: #f9f9f9;
+            padding:20px;
+            border:1px solid #e0e0e0;
+            border-radius:5px;
+            max-width:450px;
+            margin-top:15px;
+        }
+        .form-row{
+            margin-bottom:12px;
+        }
+        .form-row label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+        .form-row input, .form-row select,.form-row textarea{
+            width:100%;
+            padding:8px;
+            border:1px solid #ccc;
+            border-radius:4px;
+            box-sizing:border-box;
+        }
+         .submit-btn{
+            background-color: #00796b;
+            color:#fff;
+            padding:10px 15px;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+        font-weight:bold;}
+         .submit-btn:hover{
+            background-color: #004d40;}
+            output{
+                display:block;
+                margin-top:10px;
+                padding:10px;
+                background-color: #e0f2f1;
+                color: #2e7d32;
+                border:1px solid #b2dfdb;
+                border-radius:5px;
+            }
+            #feedback-section {
+            background-color: #fffde7;
+            padding: 20px;
+            border: 1px solid #fbc02d;
+            border-radius: 5px;
+            max-width: 450px;
+            margin-top: 25px;
+        }
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 4px;
+        }
+        .fee-badge {
+            background-color: #e0f2f1;
+            color: #004d40;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CitizenHub</h1>
+        <p>Your one-stop destination for all upcoming events in your area!</p>  
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#register">Register</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+         <main>
+            <div id="welcomeBanner">
+                    <h2>Welcome to CitizenHub!</h2>
+                    <p>Check out our <span style="color: #d32f2f; font-weight: bold;">Special Flash Offer:</span> Register for any festival this week and get a free community badge!</p>
+            <p>Important: Keep your resident ID ready before booking.</p>
+        </div>
+                
+            <h1>Local Community Event Portal</h1>
+            <p>Welcome! This platform connects you directly with neighborhood activities, city council updates, and public workshops. Use the links above to explore schedules or get in touch with our team.</p>
+            <section id="home">
+                <h2>Home</h2>
+               <p>Stay connected with your neighborhood. This portal serves as a lightweight, browser-based solution designed to help residents quickly register for events, check community venue locations, and access basic city council services.</p>
+            </section>
+            <section id="events">
+                <h2>Events</h2>
+                <p>Check out our comprehensive list of upcoming events in your local area. From cultural festivals and art exhibitions to sports events and charity fundraisers, there's something for everyone. Click on each event to learn more about the details, location, and how to participate.</p>
+            </section>
+            <!-- Exercise 4 -->
+            <section>
+            <table>
+                <caption>Highlights from Recent Events</caption>
+                <tr>
+                    <td> <img src="https://www.shutterstock.com/image-generated/image-vibrant-indian-food-festival-stalls-2497321015?trackingId=a15cca27-48f9-45e6-8c01-83b728e56d4c&listId=searchResults" alt="Food Festival" title="Annual Food Festival" class="gallery-img"></td>
+                    <td><img src="https://www.google.com/imgres?q=charity%20run&imgurl=https%3A%2F%2Fimages.surferseo.art%2Fe6047cdb-e696-483b-961d-826d8c457687.jpeg&imgrefurl=https%3A%2F%2Fwww.spotfund.com%2Fblog%2F4u6FHZ-how-to-organize-a-charity-run-everything-you-need-to-know&docid=FUm5rDnEox43PM&tbnid=KfSEfUglbcCJbM&vet=12ahUKEwir8OjKxNyUAxV-d2wGHVdUIhcQnPAOegQIaxAB..i&w=823&h=546&hcb=2&ved=2ahUKEwir8OjKxNyUAxV-d2wGHVdUIhcQnPAOegQIaxAB" alt="Charity Run" title="City Charity Run" class="gallery-img"></td>
+                    <td> <img src="https://www.google.com/imgres?q=Green%20Neighborhood%20Initiative&imgurl=https%3A%2F%2Fbiofriendlyplanet.com%2Fapp%2Fuploads%2F2023%2F09%2FiStock-1357827341.jpg&imgrefurl=https%3A%2F%2Fbiofriendlyplanet.com%2Feveryday-solutions-to-make-your-neighborhood-greener-happier-and-healthier%2F&docid=I1iE9Ki7S_9F6M&tbnid=lVXfmKdBz0AjzM&vet=12ahUKEwiT5ILdxNyUAxXvSWwGHU_ZITYQnPAOegQIfxAB..i&w=1264&h=830&hcb=2&ved=2ahUKEwiT5ILdxNyUAxXvSWwGHU_ZITYQnPAOegQIfxAB" alt="People planting trees" title="Green Neighborhood Initiative" class="gallery-img">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://picsum.photos" alt="Live music stage" title="Summer Concert Series" class="gallery-img">
+                    </td>
+                    <td>
+                        <img src="https://picsum.photos" alt="Art gallery wall" title="Local Artists Exhibition" class="gallery-img">
+                    </td>
+                    <td>
+                        <img src="https://picsum.photos" alt="Kids coding class" title="Youth Tech Bootcamp" class="gallery-img">
+                    </td>
+                </tr>
+            </table></section>
+            <section id="video-section" style="background-color: #f9f9f9; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px; max-width: 450px; margin-top: 15px;">
+    <h3>📹 Promo Video Invite</h3>
+    <video width="100%" controls oncanplay="handleVideoReady()">
+        <source src="1779991159493video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p id="videoStatus" style="font-weight: bold; margin-top: 5px; color: #e65100;">Status: Buffering media details...</p>
+</section>
+
+                        <!-- EXERCISE 9: GEOLOCATION INTEGRATION -->
+            <div id="geo-container" style="margin-top: 25px; padding: 15px; background-color: #f1f8e9; border: 1px solid #c5e1a5; border-radius: 5px; max-width: 600px;">
+                <h3>📍 Event Locator Engine</h3>
+                <p>Allow location access to map the closest community gatherings relative to your current coordinates.</p>
+                
+                <!-- Action trigger for Geolocation API execution -->
+                <button type="button" class="submit-btn" onclick="findNearbyEvents()">Find Nearby Events</button>
+                
+                <!-- Placeholder where our javascript will cleanly print out coordinates or error states -->
+                <p id="locationDisplay" style="font-weight: bold; margin-top: 10px; color: #33691e;">Status: Location data uninitialized.</p>
+            </div>
+
+            <!-- Exercise 5 -->
+            <section id="register">
+                <h2>Event Registration</h2>
+                <p>Fill out the application below to secure your entry pass for local events.</p>
+                   <form onsubmit="event.preventDefault(); document.getElementById('confirmationDisplay').value = 'Registration processed successfully for ' + document.getElementById('fullname').value + '!';">
+                    
+                    <div class="form-row">
+                        <label for="fullname">Full Name:</label>
+                       
+                        <input type="text" id="fullname" placeholder="Enter your first and last name" required autofocus>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" placeholder="resident@example.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="eventDate">Event Date:</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="eventType">Event Type:</label>
+                        <select id="eventType" required>
+                            <option value="">-- Please select an option --</option>
+                            <option value="festival">Annual Food Festival</option>
+                                <option value="charity">City Charity Run</option>
+                                <option value="concert">Summer Concert Series</option>
+                                <option value="tech">Youth Tech Bootcamp</option>
+                                <option value="art">Local Art Exhibition</option>
+                                <option value="cleanup">Green Neighborhood Drive</option>
+                            
+
+                        </select>
+                        <div id="feeDisplay" class="fee-badge">Calculated Fee: $0.00</div>
+                         <div style="margin-top: 10px;">
+        <button type="button" onclick="saveUserPreference()" style="background-color: #006064; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">💾 Remember My Choice</button>
+        <button type="button" onclick="clearUserPreferences()" style="background-color: #ba000d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🗑️ Clear Preferences</button>
+    </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">Special Requirements / Message:</label>
+                        <textarea id="message" rows="4" placeholder="Type any accessibility requests or queries here..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Registration</button>
+                    
+                    
+                    <output id="confirmationDisplay"></output>
+                </form>
+            </section>
+            <!-- Exercise 7: Feedback Section -->
+            <section id="feedback-section">
+                <h2>Citizen Feedback Desk</h2>
+                <p>Provide contact logs and feedback content. Fields process interaction events natively.</p>
+                
+                <div class="form-row">
+                    <label for="userPhone">Contact Phone Number (Validates on Blur):</label>
+                    <input type="text" id="userPhone" placeholder="Enter 10-digit number" onblur="validatePhoneNumber()">
+                    <span id="phoneError" class="error-message"></span>
+                </div>
+
+                <div class="form-row">
+                    <label for="feedbackTextarea">Your Review (Live Character Counter):</label>
+                    <textarea id="feedbackTextarea" rows="4" placeholder="Share your experience with us..." onkeyup="countReviewCharacters()"></textarea>
+                    <p style="font-size: 0.9rem; font-weight: bold;">Character Count: <span id="liveCounter">0</span> characters typed.</p>
+                </div>
+                 <div class="form-row">
+        <button type="button" class="submit-btn" onclick="submitFeedbackForm()">Submit Feedback</button>
+    </div>
+            </section>
+
+            <section id="about">
+                <h2>About Us</h2>
+             <p>Our mission is to increase community engagement by keeping communication <span class="highlight">transparent, accessible, and community-driven</span> for all city residents.</p>
+            </section>
+            <section id="contact">
+                <h2>Contact</h2>
+                <p class="highlight">Urgent Helpline: 555-0199</p>
+            <p>Get in touch with us if you have any questions or feedback about our event listings.</p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+        </footer>
+         
+    <script>
+       
+        function validatePhoneNumber() {
+            const phoneField = document.getElementById('userPhone');
+            const errorField = document.getElementById('phoneError');
+            const numericExpression = /^[0-9]{10}$/; 
+
+            if (phoneField.value.trim() === "") {
+                errorField.textContent = ""; 
+            } else if (!numericExpression.test(phoneField.value)) {
+                errorField.textContent = "❌ Invalid format. Please enter exactly 10 numeric digits.";
+                phoneField.style.borderColor = "#d32f2f";
+            } else {
+                errorField.textContent = "✅ Valid Phone Format";
+                errorField.style.color = "#2e7d32";
+                phoneField.style.borderColor = "#2e7d32";
+            }
+        }
+
+        function displayFee(selectedEvent) {
+            const feeDisplayBox = document.getElementById('feeDisplay');
+            let cost = "$0.00";
+
+            if (selectedEvent === "festival") cost = "$15.00 Entry Pass";
+            else if (selectedEvent === "charity") cost = "$5.00 Donation Pass";
+            else if (selectedEvent === "concert") cost = "$45.00 Premium Ticket";
+            else if (selectedEvent === "tech") cost = "Free (Sponsored Workshop)";
+
+            feeDisplayBox.textContent = "Calculated Fee: " + cost;
+        }
+
+        function countReviewCharacters() {
+            const textSource = document.getElementById('feedbackTextarea').value;
+            const outputCounterTarget = document.getElementById('liveCounter');
+            outputCounterTarget.textContent = textSource.length;
+        }
+        // 5. onclick operation: Added to handle the feedback confirmation trigger
+function submitFeedbackForm() {
+    const feedbackText = document.getElementById('feedbackTextarea').value;
+    const phoneError = document.getElementById('phoneError').textContent;
+
+    if (feedbackText.trim() === "") {
+        alert("⚠️ Please write a quick review before clicking submit.");
+    } else if (phoneError.includes("❌")) {
+        alert("⚠️ Please correct your phone number before submitting your feedback.");
+    } else {
+        alert("🎉 Success! Thank you for your feedback. The city council has received your review.");
+      
+        document.getElementById('feedbackTextarea').value = "";
+        document.getElementById('userPhone').value = "";
+        document.getElementById('liveCounter').textContent = "0";
+        document.getElementById('phoneError').textContent = "";
+        document.getElementById('userPhone').style.borderColor = "#ccc";
+    }
+}
+
+
+        const imagesList = document.querySelectorAll('.gallery-img');
+        imagesList.forEach(singleImg => {
+            singleImg.ondblclick = function() {
+                if (this.style.transform === "scale(1.4)") {
+                    this.style.transform = "scale(1)";
+                } else {
+                    this.style.transform = "scale(1.4)";
+                    this.style.transition = "transform 0.2s ease-in-out";
+                }
+            };
+        });
+
+        function handleVideoReady() {
+            document.getElementById('videoStatus').textContent = "🎬 Video buffered completely. Ready to watch!";
+            document.getElementById('videoStatus').style.color = "#2e7d32";
+        }
+
+    
+        window.onbeforeunload = function (event) {
+            const nameField = document.getElementById('fullname').value;
+            const feedbackField = document.getElementById('feedbackTextarea').value;
+
+            if (nameField.trim() !== "" || feedbackField.trim() !== "") {
+                const warningMsg = 'You have unsaved changes on your form. Are you sure you want to leave?';
+                (event || window.event).returnValue = warningMsg; 
+                return warningMsg; 
+            }
+        };
+            function saveUserPreference() {
+                const eventSelect = document.getElementById('eventType');
+                const selectedEvent = eventSelect.value;
+    
+                if (selectedEvent) {
+                    sessionStorage.setItem('sessionSaved', 'true'); 
+                    localStorage.setItem('preferredEvent', selectedEvent);
+                    alert("💾 Your preference for " + eventSelect.options[eventSelect.selectedIndex].text + " has been saved!");
+                } else {
+                    alert("⚠️ Please select an event type before saving your preference.");
+                }
+            }
+            function clearUserPreferences() {
+                localStorage.removeItem('preferredEvent');
+                sessionStorage.removeItem('sessionSaved'); 
+                document.getElementById('eventType').value = "";
+    displayFee("");
+                alert("🗑️ Your saved preferences have been cleared.");
+            }
+                    // =========================================================
+        // EXERCISE 9: GEOLOCATION FOR EVENT MAPPING
+        // =========================================================
+        function findNearbyEvents() {
+            const displayOutput = document.getElementById('locationDisplay');
+            
+            // Step 1: Verify browser architecture compatibility
+            if (!navigator.geolocation) {
+                displayOutput.textContent = "❌ Geolocation is not supported by your current browser environment.";
+                displayOutput.style.color = "#d32f2f";
+                return;
+            }
+
+            displayOutput.textContent = "🛰️ Querying positioning satellites... Please wait.";
+            displayOutput.style.color = "#006064";
+
+            // Step 2: Configure high accuracy and timing threshold profiles
+            const positionOptions = {
+                enableHighAccuracy: true, // Forces precise GPS tracking instead of rough cellular tower triangulation
+                timeout: 8000,            // Limits wait times to exactly 8 seconds before killing dead requests
+                maximumAge: 0             // Forces browser to request real-time positioning instead of reading old cache dumps
+            };
+
+            // Step 3: Initialize execution core
+            navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError, positionOptions);
+        }
+
+        // Success Core: Runs seamlessly when the resident grants permission and coordinates lock
+        function handleGeoSuccess(position) {
+            const displayOutput = document.getElementById('locationDisplay');
+            const userLatitude = position.coords.latitude;
+            const userLongitude = position.coords.longitude;
+
+            // Render coordinates accurately onto screen placeholder
+            displayOutput.innerHTML = `✅ Location Found! <br> Latitude: <span class="highlight">${userLatitude}</span> <br> Longitude: <span class="highlight">${userLongitude}</span>`;
+            displayOutput.style.color = "#2e7d32";
+        }
+
+        // Error Core: Runs cleanly to capture and intercept browser rejection events safely
+        function handleGeoError(error) {
+            const displayOutput = document.getElementById('locationDisplay');
+            let systemFeedbackMessage = "";
+
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    systemFeedbackMessage = "❌ Access Denied. Please unblock location permissions in your Chrome browser address bar.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    systemFeedbackMessage = "❌ Network Error. Satellite positioning lines are currently offline.";
+                    break;
+                case error.TIMEOUT:
+                    systemFeedbackMessage = "❌ Request Timeout. Connection threshold hit before coordinates locked.";
+                    break;
+                default:
+                    systemFeedbackMessage = "❌ An anomalous mapping error occurred. Please try again.";
+                    break;
+            }
+
+            displayOutput.textContent = systemFeedbackMessage;
+            displayOutput.style.color = "#d32f2f";
+        }
+
+    </script>
+
+</body>
+</html>
