@@ -1,0 +1,164 @@
+ /* CSS Exercise 2:Readable CSS with proper structure */
+ /* Universal selector */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ body {
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            max-width: 750px;                             
+            margin: 40px auto;                            
+            padding: 0 20px;
+            color: #2c3e50;     
+                
+        /* Exercise 4: Background image with a flat solid hex fallback color */
+        background-color: #fafbfc; 
+        background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+       /* Element selector to style all h2 headings uniformly (CSS Exercise 3 & 4) */
+        h2 {
+            color: #ffffff; 
+            margin-bottom: 12px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            
+            /* Exercise 4: Linear gradient background */
+            background: linear-gradient(135deg, #00796b, #004d40);
+        }
+        /* Class selector  */
+    .eventCard {
+    background-color: #ffffff;
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 25px;
+    /* Exercise 4: Using RGBA*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+        /* Grouping selector */
+h3, p {
+    line-height: 1.6;
+    color: #37474f;
+}
+
+        header, nav, main, section, footer {
+            margin-bottom: 35px;                          
+        }
+        /* Styling navigation links */
+        nav a {
+            margin-right: 15px;
+            color: #006064;
+            text-decoration: none;                       
+            font-weight: bold;
+        }
+    /* Styling welcome banner */
+    /* Id selector */
+        #welcomeBanner{
+            background-color: #e0f7fa;
+            color:#006064;
+            padding: 15px;
+            margin-bottom:20px;
+            border:1px solid #b2ebf2;
+            border-radius:5px;
+        }
+        /* Reusable highlight class */
+       .highlight{
+            background-color: #fff9c4;
+                padding: 2px 4px;
+                border-radius: 3px;
+                font-weight:bold;
+        }
+        /* Image gallery styling */
+        .gallery-img{
+            border:3px solid #cfd8dc;
+            border-radius:5px;
+            width:150px;
+            height:100px;
+            display:block;
+            margin:auto;
+        }
+        /* Styling table */
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+            max-width:600px;
+        }
+        td{
+            padding:10px;
+            text-align:center;
+        }
+        /* Styling form */
+        form{
+            background-color: #f9f9f9;
+            padding:20px;
+            border:1px solid #e0e0e0;
+            border-radius:5px;
+            max-width:450px;
+            margin-top:15px;
+        }
+        /* Vertical layout for form elements */
+        .form-row{
+            margin-bottom:12px;
+        }
+        /* Styling form labels, inputs, and textareas */
+        .form-row label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+        /* Group selector for form elements */
+        .form-row input, .form-row select,.form-row textarea{
+            width:100%;
+            padding:8px;
+            border:1px solid #ccc;
+            border-radius:4px;
+            box-sizing:border-box;
+        }
+        /* Styling submit button */
+         .submit-btn{
+            background-color: #00796b;
+            color:#fff;
+            padding:10px 15px;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+        font-weight:bold;
+    }
+         .submit-btn:hover{
+            background-color: #004d40;}
+            /* Styling output element */
+            output{
+                display:block;
+                margin-top:10px;
+                padding:10px;
+                background-color: #e0f2f1;
+                color: #2e7d32;
+                border:1px solid #b2dfdb;
+                border-radius:5px;
+            }
+            #feedback-section {
+            background-color: #fffde7;
+            padding: 20px;
+            border: 1px solid #fbc02d;
+            border-radius: 5px;
+            max-width: 450px;
+            margin-top: 25px;
+        }
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 4px;
+        }
+        .fee-badge {
+            background-color: #e0f2f1;
+            color: #004d40;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }

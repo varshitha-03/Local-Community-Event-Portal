@@ -4,137 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Community Event Portal</title>
+    <!-- Embeded style tag -->
     <style>
-  body {
-            font-family: 'Segoe UI', system-ui, sans-serif; 
-            max-width: 750px;                             
-            margin: 40px auto;                            
-            padding: 0 20px;
-            color: #2c3e50;                              
-            background-color: #fafbfc;                  
-        }
-        
-        header, nav, main, section, footer {
-            margin-bottom: 35px;                          
-        }
-
-        nav a {
-            margin-right: 15px;
-            color: #006064;
-            text-decoration: none;                       
-            font-weight: bold;
-        }
-    
-table {
-    margin-top: 15px;
-}
-        #welcomeBanner{
-            background-color: #e0f7fa;
-            color:#006064;
-            padding: 15px;
-            margin-bottom:20px;
-            border:1px solid #b2ebf2;
-            border-radius:5px;
-        }
-       .highlight{
-            background-color: #fff9c4;
-                padding: 2px 4px;
-                border-radius: 3px;
-                font-weight:bold;
-        }
-        .gallery-img{
-            border:3px solid #cfd8dc;
-            border-radius:5px;
-            width:150px;
-            height:100px;
-            display:block;
-            margin:auto;
-        }
-        table{
-            width:100%;
-            border-collapse:collapse;
-            margin-top:15px;
-            max-width:600px;
-        }
-        td{
-            padding:10px;
-            text-align:center;
-        }
-        form{
-            background-color: #f9f9f9;
-            padding:20px;
-            border:1px solid #e0e0e0;
-            border-radius:5px;
-            max-width:450px;
-            margin-top:15px;
-        }
-        .form-row{
-            margin-bottom:12px;
-        }
-        .form-row label{
-            display:block;
-            margin-bottom:5px;
-            font-weight:bold;
-        }
-        .form-row input, .form-row select,.form-row textarea{
-            width:100%;
-            padding:8px;
-            border:1px solid #ccc;
-            border-radius:4px;
-            box-sizing:border-box;
-        }
-         .submit-btn{
-            background-color: #00796b;
-            color:#fff;
-            padding:10px 15px;
-            border:none;
-            border-radius:4px;
-            cursor:pointer;
-        font-weight:bold;}
-         .submit-btn:hover{
-            background-color: #004d40;}
-            output{
-                display:block;
-                margin-top:10px;
-                padding:10px;
-                background-color: #e0f2f1;
-                color: #2e7d32;
-                border:1px solid #b2dfdb;
-                border-radius:5px;
-            }
-            #feedback-section {
-            background-color: #fffde7;
-            padding: 20px;
-            border: 1px solid #fbc02d;
-            border-radius: 5px;
-            max-width: 450px;
-            margin-top: 25px;
-        }
-        .error-message {
-            color: #d32f2f;
-            font-size: 0.85rem;
-            display: block;
-            margin-top: 4px;
-        }
-        .fee-badge {
-            background-color: #e0f2f1;
-            color: #004d40;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 5px;
+        body{
+               background-color: #fafbfc;       
         }
     </style>
+    <!-- External Stylesheet link -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>CitizenHub</h1>
+        <!-- CSS Exercise 1 inline style to make heading red -->
+        <h1 style="color:#d32f2f;">CitizenHub</h1>
         <p>Your one-stop destination for all upcoming events in your area!</p>  
     </header>
 
-    <!-- Exercise 2 -->
+    <!--HTML Exercise 2 -->
     <nav>
         <a href="#home">Home</a>
         <a href="#events">Events</a>
@@ -207,7 +93,7 @@ table {
             </div>
 
             <!-- Exercise 5 -->
-            <section id="register">
+            <section id="register" class="eventCard">
                 <h2>Event Registration</h2>
                 <p>Fill out the application below to secure your entry pass for local events.</p>
                    <form onsubmit="event.preventDefault(); document.getElementById('confirmationDisplay').value = 'Registration processed successfully for ' + document.getElementById('fullname').value + '!';">
@@ -258,7 +144,7 @@ table {
                 </form>
             </section>
             <!-- Exercise 6: Feedback Section -->
-            <section id="feedback-section">
+            <section id="feedback-section" >
                 <h2>Citizen Feedback Desk</h2>
                 <p>Provide contact logs and feedback content. Fields process interaction events natively.</p>
                 
