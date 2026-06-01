@@ -84,7 +84,7 @@
                 return warningMsg; 
             }
         };
-        // Exercise 8:Saving User Preferences
+        // Saving User Preferences
             function saveUserPreference() {
                 const eventSelect = document.getElementById('eventType');
                 const selectedEvent = eventSelect.value;
@@ -112,12 +112,12 @@
                     const eventSelect = document.getElementById('eventType');
                     if (eventSelect) {
                         eventSelect.value = savedPreference;
-                        displayFee(savedPreference); // Syncs the cost badge presentation line
+                        displayFee(savedPreference); 
                     }
                 }
             });
                     
-        // EXERCISE 9: GEOLOCATION FOR EVENT MAPPING
+        // GEOLOCATION FOR EVENT MAPPING
        
         function findNearbyEvents() {
             const displayOutput = document.getElementById('locationDisplay');
@@ -133,16 +133,14 @@
 
           
             const positionOptions = {
-                enableHighAccuracy: true, // Forces precise GPS tracking instead of rough cellular tower triangulation
-                timeout: 8000,            // Limits wait times to exactly 8 seconds before killing dead requests
-                maximumAge: 0             // Forces browser to request real-time positioning instead of reading old cache dumps
+                enableHighAccuracy: true,
+                timeout: 8000,           
+                maximumAge: 0            
             };
 
  
             navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError, positionOptions);
         }
-
-        
         function handleGeoSuccess(position) {
             const displayOutput = document.getElementById('locationDisplay');
             const userLatitude = position.coords.latitude;
@@ -152,8 +150,6 @@
             displayOutput.innerHTML = `✅ Location Found! <br> Latitude: <span class="highlight">${userLatitude}</span> <br> Longitude: <span class="highlight">${userLongitude}</span>`;
             displayOutput.style.color = "#2e7d32";
         }
-
-        
         function handleGeoError(error) {
             const displayOutput = document.getElementById('locationDisplay');
             let systemFeedbackMessage = "";

@@ -15,12 +15,12 @@
 </head>
 <body>
     <header>
-        <!-- CSS Exercise 1 inline style to make heading red -->
+        <!-- Inline style to make heading red -->
         <h1 style="color:#d32f2f;">CitizenHub</h1>
         <p>Your one-stop destination for all upcoming events in your area!</p>  
     </header>
 
-    <!--HTML Exercise 2 -->
+    <!-- Navigation -->
     <nav>
         <a href="#home">Home</a>
         <a href="#events">Events</a>
@@ -30,7 +30,7 @@
         <a href="help.html" target="_blank">Help</a>
     </nav>
          <main>
-            <!-- Exercise 3 -->
+            <!-- Welcome Banner -->
             <div id="welcomeBanner">
                     <h2>Welcome to CitizenHub!</h2>
                     <p>Check out our <span style="color: #d32f2f; font-weight: bold;">Special Flash Offer:</span> Register for any festival this week and get a free community badge!</p>
@@ -47,7 +47,6 @@
                 <h2>Events</h2>
                 <p>Check out our comprehensive list of upcoming events in your local area. From cultural festivals and art exhibitions to sports events and charity fundraisers, there's something for everyone. Click on each event to learn more about the details, location, and how to participate.</p>
             </section>
-            <!-- Exercise 4 -->
             <section>
             <table>
                 <caption>Highlights from Recent Events</caption>
@@ -70,7 +69,7 @@
                 </tr>
             </table></section>
 
-            <!-- Exercise 7: Video Section -->
+            <!--Video Section -->
             <section id="video-section" style="background-color: #f9f9f9; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px; max-width: 450px; margin-top: 15px;">
     <h3>📹 Promo Video Invite</h3>
     <video width="100%" controls oncanplay="handleVideoReady()">
@@ -80,19 +79,17 @@
     <p id="videoStatus" style="font-weight: bold; margin-top: 5px; color: #e65100;">Status: Buffering media details...</p>
 </section>
 
-                        <!-- EXERCISE 9: GEOLOCATION INTEGRATION -->
+                 <!--  GEOLOCATION INTEGRATION -->
             <div id="geo-container" style="margin-top: 25px; padding: 15px; background-color: #f1f8e9; border: 1px solid #c5e1a5; border-radius: 5px; max-width: 600px;">
                 <h3>📍 Event Locator Engine</h3>
                 <p>Allow location access to map the closest community gatherings relative to your current coordinates.</p>
                 
-                <!-- Action trigger for Geolocation API execution -->
                 <button type="button" class="submit-btn" onclick="findNearbyEvents()">Find Nearby Events</button>
                 
-                <!-- Placeholder where our javascript will cleanly print out coordinates or error states -->
                 <p id="locationDisplay" style="font-weight: bold; margin-top: 10px; color: #33691e;">Status: Location data uninitialized.</p>
             </div>
 
-            <!-- Exercise 5 -->
+            <!-- Registration Section -->
             <section id="register" class="eventCard">
                 <h2>Event Registration</h2>
                 <p>Fill out the application below to secure your entry pass for local events.</p>
@@ -143,7 +140,7 @@
                     <output id="confirmationDisplay"></output>
                 </form>
             </section>
-            <!-- Exercise 6: Feedback Section -->
+            <!--  Feedback Section -->
             <section id="feedback-section" >
                 <h2>Citizen Feedback Desk</h2>
                 <p>Provide contact logs and feedback content. Fields process interaction events natively.</p>
