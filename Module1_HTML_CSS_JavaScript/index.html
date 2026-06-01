@@ -70,7 +70,7 @@
             </table></section>
 
             <!--Video Section -->
-            <section id="video-section" style="background-color: #f9f9f9; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px; max-width: 450px; margin-top: 15px;">
+            <section id="video-section" style="background-color: #f9f9f9; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px;  margin-top: 15px;">
     <h3>📹 Promo Video Invite</h3>
     <video width="100%" controls oncanplay="handleVideoReady()">
         <source src="1779991159493video.mp4" type="video/mp4">
@@ -78,6 +78,7 @@
     </video>
     <p id="videoStatus" style="font-weight: bold; margin-top: 5px; color: #e65100;">Status: Buffering media details...</p>
 </section>
+    
 
                  <!--  GEOLOCATION INTEGRATION -->
             <div id="geo-container" style="margin-top: 25px; padding: 15px; background-color: #f1f8e9; border: 1px solid #c5e1a5; border-radius: 5px; max-width: 600px;">
@@ -92,6 +93,14 @@
             <!-- Registration Section -->
             <section id="register" class="eventCard">
                 <h2>Event Registration</h2>
+                <div class="news-article-section">
+                <p>
+                    Welcome to our annual Local Community Event Portal update...
+                </p>
+                <p>
+                    By organizing these events, our goal is to foster stronger connections...
+                </p>
+            </div>
                 <p>Fill out the application below to secure your entry pass for local events.</p>
                    <form onsubmit="event.preventDefault(); document.getElementById('confirmationDisplay').value = 'Registration processed successfully for ' + document.getElementById('fullname').value + '!';">
                     
@@ -141,7 +150,7 @@
                 </form>
             </section>
             <!--  Feedback Section -->
-            <section id="feedback-section" >
+            <section id="feedback-section" ,class="eventCard">
                 <h2>Citizen Feedback Desk</h2>
                 <p>Provide contact logs and feedback content. Fields process interaction events natively.</p>
                 
