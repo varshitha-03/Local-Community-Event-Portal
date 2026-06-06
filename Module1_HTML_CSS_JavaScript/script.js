@@ -1,4 +1,19 @@
-
+        const communityEvents = [
+            { id: "festival", name: "Annual Food Festival", date: "October 15, 2026", seats: 50, active: true },
+            { id: "charity", name: "City Charity Run", date: "November 22, 2026", seats: 0, active: true },
+            { id: "concert", name: "Summer Concert Series", date: "July 18, 2026", seats: 120, active: true },
+            { id: "tech", name: "Youth Tech Bootcamp", date: "April 05, 2025", seats: 25, active: false }   
+        ];
+        window.addEventListener("DOMContentLoaded", function () {
+            console.log("Welcome to the Community Portal");
+            alert("Welcome to the Community Portal! The page has fully loaded.");
+            console.log("--- Current Available Upcoming Events ---");
+            communityEvents.forEach(singleEvent => {
+                if (singleEvent.active && singleEvent.seats > 0) {
+                    console.log(`🎟️ ${singleEvent.name} (${singleEvent.date}) - Seats Left: ${singleEvent.seats}`);
+                }
+            });
+        });
         function validatePhoneNumber() {
             const phoneField = document.getElementById('userPhone');
             const errorField = document.getElementById('phoneError');
@@ -84,28 +99,45 @@
                 return warningMsg; 
             }
         };
-        // Saving User Preferences
             function saveUserPreference() {
-                const eventSelect = document.getElementById('eventType');
-                const selectedEvent = eventSelect.value;
-    
-                if (selectedEvent) {
-                    sessionStorage.setItem('sessionSaved', 'true'); 
-                    localStorage.setItem('preferredEvent', selectedEvent);
-                    alert("💾 Your preference for " + eventSelect.options[eventSelect.selectedIndex].text + " has been saved!");
-                } else {
-                    alert("⚠️ Please select an event type before saving your preference.");
+            const eventSelect = document.getElementById('eventType');
+            const selectedEvent = eventSelect.value;
+            if (!selectedEvent) {
+                alert("⚠️ Please select an event type before saving your preference.");
+                return;
+            }
+            try {
+                const targetedEvent = communityEvents.find(evt => evt.id === selectedEvent);
+                if (!targetedEvent) {
+                    throw new Error("Invalid selection choice. Event records missing.");
                 }
-            }
-            function clearUserPreferences() {
-                localStorage.removeItem('preferredEvent');
-                sessionStorage.removeItem('sessionSaved'); 
-                document.getElementById('eventType').value = "";
-                displayFee("");
-                alert("🗑️ Your saved preferences have been cleared.");
-            }
+                if (targetedEvent.seats <= 0) {
+                    throw new Error(`Sold Out! There are no remaining tickets available for "${targetedEvent.name}".`);
+                }
+                if (!targetedEvent.active) {
+                    throw new Error(`Registration Closed! The event "${targetedEvent.name}" has already concluded.`);
+                }
+                const currentName = targetedEvent.name;
+                const currentDate = targetedEvent.date;
+                targetedEvent.seats--;
+                const confirmationMessage = `🎉 Preference Saved!\n\nYou have registered for the ${currentName} scheduled for ${currentDate}.\nRemaining Seats: ${targetedEvent.seats}`;
+                sessionStorage.setItem('sessionSaved', 'true'); 
+                localStorage.setItem('preferredEvent', selectedEvent);
+                alert(confirmationMessage);
+                console.log(`[Success Trace] ${confirmationMessage}`);
 
-            
+            } catch (registrationError) {
+                alert(`⚠️ Registration Blocked:\n${registrationError.message}`);
+                console.error(`[Error Trace] ${registrationError.message}`);
+            }
+        }
+        function clearUserPreferences() {
+            localStorage.removeItem('preferredEvent');
+            sessionStorage.removeItem('sessionSaved'); 
+            document.getElementById('eventType').value = "";
+            displayFee("");
+            alert("🗑️ Your saved preferences have been cleared.");
+        }
             window.addEventListener('DOMContentLoaded', () => {
                 const savedPreference = localStorage.getItem('preferredEvent');
                 if (savedPreference) {
