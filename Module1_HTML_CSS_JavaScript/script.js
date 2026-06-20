@@ -1,19 +1,66 @@
-        const communityEvents = [
-            { id: "festival", name: "Annual Food Festival", date: "October 15, 2026", seats: 50, active: true },
-            { id: "charity", name: "City Charity Run", date: "November 22, 2026", seats: 0, active: true },
-            { id: "concert", name: "Summer Concert Series", date: "July 18, 2026", seats: 120, active: true },
-            { id: "tech", name: "Youth Tech Bootcamp", date: "April 05, 2025", seats: 25, active: false }   
-        ];
-        window.addEventListener("DOMContentLoaded", function () {
-            console.log("Welcome to the Community Portal");
-            alert("Welcome to the Community Portal! The page has fully loaded.");
-            console.log("--- Current Available Upcoming Events ---");
-            communityEvents.forEach(singleEvent => {
-                if (singleEvent.active && singleEvent.seats > 0) {
-                    console.log(`🎟️ ${singleEvent.name} (${singleEvent.date}) - Seats Left: ${singleEvent.seats}`);
-                }
-            });
-        });
+
+const communityEvents = [
+    { id: "festival", name: "Annual Food Festival", date: "October 15, 2026", seats: 50, active: true, category: "Food" },
+    { id: "charity", name: "City Charity Run", date: "November 22, 2026", seats: 0, active: true, category: "Sports" },
+    { id: "concert", name: "Summer Concert Series", date: "July 18, 2026", seats: 120, active: true, category: "Music" },
+    { id: "tech", name: "Youth Tech Bootcamp", date: "April 05, 2025", seats: 25, active: false, category: "Education" }
+];
+
+function addEvent(id, name, date, seats, category) {
+    const newEvent = { id, name, date, seats, active: true, category };
+    communityEvents.push(newEvent);
+    console.log(`➕ [Engine Log] Successfully indexed new event: "${name}" (${category})`);
+}
+
+function registerUser(selectedEventId) {
+    const targetedEvent = communityEvents.find(evt => evt.id === selectedEventId);
+
+    if (!targetedEvent) {
+        throw new Error("Invalid selection choice. Event records missing.");
+    }
+    if (targetedEvent.seats <= 0) {
+        throw new Error(`Sold Out! There are no remaining tickets available for "${targetedEvent.name}".`);
+    }
+    if (!targetedEvent.active) {
+        throw new Error(`Registration Closed! The event "${targetedEvent.name}" has already concluded.`);
+    }
+
+    targetedEvent.seats--;
+    return targetedEvent; 
+}
+
+function createCategoryTracker() {
+    let globalRegistrationCount = 0; 
+    return function(eventName) {
+        globalRegistrationCount++;
+        console.log(`📊 [Metrics Tracker] Cumulative category updates processed: ${globalRegistrationCount} (Latest: ${eventName})`);
+        return globalRegistrationCount;
+    };
+}
+const trackCategoryMetrics = createCategoryTracker();
+
+function filterEventsByCategory(targetCategory, screeningCallback) {
+
+    const filteredMatches = communityEvents.filter(evt => evt.category.toLowerCase() === targetCategory.toLowerCase());
+    
+    if (typeof screeningCallback === "function") {
+        return filteredMatches.filter(screeningCallback);
+    }
+    return filteredMatches;
+}
+window.addEventListener("DOMContentLoaded", function () {
+    console.log("Welcome to the Community Portal");
+    alert("Welcome to the Community Portal! The page has fully loaded.");
+
+    addEvent("art", "Local Art Exhibition", "December 05, 2026", 45, "Arts");
+
+    console.log("--- Current Available Upcoming Events ---");
+    communityEvents.forEach(singleEvent => {
+        if (singleEvent.active && singleEvent.seats > 0) {
+            console.log(`🎟️ ${singleEvent.name} (${singleEvent.date}) - Category: ${singleEvent.category} - Seats Left: ${singleEvent.seats}`);
+        }
+    });
+});
         function validatePhoneNumber() {
             const phoneField = document.getElementById('userPhone');
             const errorField = document.getElementById('phoneError');
@@ -100,37 +147,33 @@
             }
         };
             function saveUserPreference() {
-            const eventSelect = document.getElementById('eventType');
-            const selectedEvent = eventSelect.value;
-            if (!selectedEvent) {
-                alert("⚠️ Please select an event type before saving your preference.");
-                return;
-            }
-            try {
-                const targetedEvent = communityEvents.find(evt => evt.id === selectedEvent);
-                if (!targetedEvent) {
-                    throw new Error("Invalid selection choice. Event records missing.");
-                }
-                if (targetedEvent.seats <= 0) {
-                    throw new Error(`Sold Out! There are no remaining tickets available for "${targetedEvent.name}".`);
-                }
-                if (!targetedEvent.active) {
-                    throw new Error(`Registration Closed! The event "${targetedEvent.name}" has already concluded.`);
-                }
-                const currentName = targetedEvent.name;
-                const currentDate = targetedEvent.date;
-                targetedEvent.seats--;
-                const confirmationMessage = `🎉 Preference Saved!\n\nYou have registered for the ${currentName} scheduled for ${currentDate}.\nRemaining Seats: ${targetedEvent.seats}`;
-                sessionStorage.setItem('sessionSaved', 'true'); 
-                localStorage.setItem('preferredEvent', selectedEvent);
-                alert(confirmationMessage);
-                console.log(`[Success Trace] ${confirmationMessage}`);
+        const eventSelect = document.getElementById('eventType');
+        const selectedEvent = eventSelect.value;
 
-            } catch (registrationError) {
-                alert(`⚠️ Registration Blocked:\n${registrationError.message}`);
-                console.error(`[Error Trace] ${registrationError.message}`);
-            }
+        if (!selectedEvent) {
+        alert("⚠️ Please select an event type before saving your preference.");
+        return;
         }
+
+        try {
+       
+        const updatedEvent = registerUser(selectedEvent);
+        const currentName = updatedEvent.name;
+        const currentDate = updatedEvent.date;
+        const confirmationMessage = `🎉 Preference Saved!\n\nYou have registered for the ${currentName} scheduled for ${currentDate}.\nRemaining Seats: ${updatedEvent.seats}`;
+        trackCategoryMetrics(updatedEvent.name);
+
+        sessionStorage.setItem('sessionSaved', 'true'); 
+        localStorage.setItem('preferredEvent', selectedEvent);
+        
+        alert(confirmationMessage);
+        console.log(`[Success Trace] ${confirmationMessage}`);
+
+        } catch (registrationError) {
+        alert(`⚠️ Registration Blocked:\n${registrationError.message}`);
+        console.error(`[Error Trace] ${registrationError.message}`);
+        }
+    }
         function clearUserPreferences() {
             localStorage.removeItem('preferredEvent');
             sessionStorage.removeItem('sessionSaved'); 
@@ -204,3 +247,49 @@
             displayOutput.textContent = systemFeedbackMessage;
             displayOutput.style.color = "#d32f2f";
         }
+window.addEventListener("DOMContentLoaded", function () {
+    const registrationForm = document.getElementById("registrationForm");
+    const confirmationDisplay = document.getElementById("confirmationDisplay");
+
+    if (registrationForm) {
+        registrationForm.addEventListener("submit", function (event) {
+          
+            event.preventDefault(); 
+
+            const eventSelect = document.getElementById('eventType');
+            const selectedEventId = eventSelect.value;
+            const phoneError = document.getElementById('phoneError').textContent;
+
+            if (!selectedEventId) {
+                confirmationDisplay.textContent = "⚠️ Please select a valid event type from the dropdown menu.";
+                confirmationDisplay.style.color = "#d32f2f";
+                return;
+            }
+
+            if (phoneError.includes("❌")) {
+                confirmationDisplay.textContent = "⚠️ Cannot submit. Please fix the errors in your phone field first.";
+                confirmationDisplay.style.color = "#d32f2f";
+                return;
+            }
+
+            try {
+                const bookedEvent = registerUser(selectedEventId);
+
+                trackCategoryMetrics(bookedEvent.name);
+
+                confirmationDisplay.innerHTML = `🎉 <strong>Success!</strong> Your registration for <em>${bookedEvent.name}</em> has been finalized. Remaining seats: ${bookedEvent.seats}`;
+                confirmationDisplay.style.color = "#2e7d32";
+
+                document.getElementById('feedbackTextarea').value = "";
+                document.getElementById('userPhone').value = "";
+                document.getElementById('liveCounter').textContent = "0";
+                document.getElementById('phoneError').textContent = "";
+                document.getElementById('userPhone').style.borderColor = "#ccc";
+
+            } catch (error) {
+                confirmationDisplay.textContent = `❌ Submission Failed: ${error.message}`;
+                confirmationDisplay.style.color = "#d32f2f";
+            }
+        });
+    }
+});

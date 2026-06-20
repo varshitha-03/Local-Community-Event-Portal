@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Community Event Portal</title>
-    <!-- Embeded style tag -->
     <style>
         body{
                background-color: #fafbfc;       
@@ -102,7 +101,7 @@
                 </p>
             </div>
                 <p>Fill out the application below to secure your entry pass for local events.</p>
-                   <form onsubmit="event.preventDefault(); document.getElementById('confirmationDisplay').value = 'Registration processed successfully for ' + document.getElementById('fullname').value + '!';">
+                   <form id="registrationForm">
                     
                     <div class="form-row">
                         <label for="fullname">Full Name:</label>
